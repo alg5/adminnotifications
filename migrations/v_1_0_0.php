@@ -47,12 +47,12 @@ class v_1_0_0 extends \phpbb\db\migration\migration
 		return array(
 			array('config.add', array('adminnotifications_version', '2.0.0')),
 
-			// Add 	 modules
-			array('module.add', array('	', '	_CAT_DOT_MODS', '	_ADMINNOTIFICATIONS')),
+			// Add ACP modules
+			array('module.add', array('acp', 'ACP_CAT_DOT_MODS', 'ACP_ADMINNOTIFICATIONS')),
 
-			array('module.add', array('	', '	_ADMINNOTIFICATIONS', array(
-					'module_basename'	=> '\alg\adminnotifications\	\	_adminnotifications_module',
-					'module_langname'	=> '	_ADMINNOTIFICATIONS_SETTINGS',
+			array('module.add', array('acp', 'ACP_ADMINNOTIFICATIONS', array(
+					'module_basename'	=> '\alg\adminnotifications\acp\acp_adminnotifications_module',
+					'module_langname'	=> 'ACP_ADMINNOTIFICATIONS_SETTINGS',
 					'module_mode'		=> 'adminnotifications',
 					'module_auth'		=> 'ext_alg/adminnotifications && acl_a_board',
 				))),
@@ -67,24 +67,24 @@ class v_1_0_0 extends \phpbb\db\migration\migration
 			// Current version
 				array('config.remove', array('adminnotifications_version')),
 
-			// remove from 	 modules
+			// remove from ACP modules
 			array('if', array(
-				array('module.exists', array('	', '	_ADMINNOTIFICATIONS', array(
-					'module_basename'	=> '\alg\adminnotifications\	\	_adminnotifications_module',
-					'module_langname'	=> '	_ADMINNOTIFICATIONS_SETTINGS',
+				array('module.exists', array('acp', 'ACP_ADMINNOTIFICATIONS', array(
+					'module_basename'	=> '\alg\adminnotifications\acp\acp_adminnotifications_module',
+					'module_langname'	=> 'ACP_ADMINNOTIFICATIONS_SETTINGS',
 					'module_mode'		=> 'adminnotifications',
 					'module_auth'		=> 'ext_alg/adminnotifications && acl_a_board',
 					),
 				)),
-				array('module.remove', array('	', '	_ADMINNOTIFICATIONS', array(
-					'module_basename'	=> '\alg\adminnotifications\	\	_adminnotifications_module',
-					'module_langname'	=> '	_ADMINNOTIFICATIONS_SETTINGS',
+				array('module.remove', array('acp', 'ACP_ADMINNOTIFICATIONS', array(
+					'module_basename'	=> '\alg\adminnotifications\acp\acp_adminnotifications_module',
+					'module_langname'	=> 'ACP_ADMINNOTIFICATIONS_SETTINGS',
 					'module_mode'		=> 'adminnotifications',
 					'module_auth'		=> 'ext_alg/adminnotifications && acl_a_board',
 					),
 				)),
 			)),
-			array('module.remove', array('	', '	_CAT_DOT_MODS', '	_ADMINNOTIFICATIONS')),
+			array('module.remove', array('acp', 'ACP_CAT_DOT_MODS', 'ACP_ADMINNOTIFICATIONS')),
 		);
 	}
 }
