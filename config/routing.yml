@@ -1,0 +1,3 @@
+alg_adminnotifications_controller:
+    path: /adminnotifications/{action}
+    defaults: { _controller: alg.adminnotifications.adminnotifications_handler:main }
