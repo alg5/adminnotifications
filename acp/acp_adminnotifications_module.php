@@ -7,7 +7,7 @@
 *
 */
 
-namespace alg\adminnotifications\	;
+namespace alg\adminnotifications;
 
 /**
 * @package 	
