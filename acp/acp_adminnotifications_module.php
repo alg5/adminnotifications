@@ -25,7 +25,7 @@ class acp_adminnotifications_module
 
 		$this->tpl_name = 'acp_adminnotifications';
 		$this->page_title = 'ACP_ADMINNOTIFICATIONS_SETTINGS';
-        $user->add_lang('acp/permissions');
+		$user->add_lang('acp/permissions');
 
 		$form_key = 'acp_adminnotifications';
 		add_form_key($form_key);
