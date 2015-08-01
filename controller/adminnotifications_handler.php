@@ -398,9 +398,9 @@ class adminnotifications_handler
 			return (utf8_strlen($title) > $limit + 3) ? truncate_string($title, $limit) . '...' : $title;
 		}
 		else
-	   {
-		  return $title;
-	   }
+		{
+			return $title;
+		}
 	}
 
 }
