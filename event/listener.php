@@ -31,7 +31,7 @@ class listener implements EventSubscriberInterface
 	static public function getSubscribedEvents()
 	{
 		return array(
-			'core.user_setup'					=>	'load_language_on_setup',
+ 			'core.user_setup'					=>	'load_language_on_setup',
 		);
 	}
 	public function load_language_on_setup($event)
@@ -39,7 +39,7 @@ class listener implements EventSubscriberInterface
 		$lang_set_ext = $event['lang_set_ext'];
 		$lang_set_ext[] = array(
 			'ext_name' => 'alg/adminnotifications',
-			'lang_set' => 'info_	_adminnotifications',
+			'lang_set' => 'info_acp_adminnotifications',
 		);
 		$event['lang_set_ext'] = $lang_set_ext;
 	}
