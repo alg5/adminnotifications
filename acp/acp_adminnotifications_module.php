@@ -7,12 +7,12 @@
 *
 */
 
-namespace alg\adminnotifications;
+namespace alg\adminnotifications\acp;
 
 /**
 * @package 	
 */
-class 	_adminnotifications_module
+class acp_adminnotifications_module
 {
 	var $u_action;
 	var $new_config = array();
@@ -23,11 +23,11 @@ class 	_adminnotifications_module
 		global $phpbb_container;
 		$controller = $phpbb_container->get('alg.adminnotifications.adminnotifications_handler');
 
-		$this->tpl_name = '	_adminnotifications';
-		$this->page_title = '	_ADMINNOTIFICATIONS_SETTINGS';
-		$user->add_lang('	/permissions');
+		$this->tpl_name = 'acp_adminnotifications';
+		$this->page_title = 'ACP_ADMINNOTIFICATIONS_SETTINGS';
+        $user->add_lang('acp/permissions');
 
-		$form_key = '	_adminnotifications';
+		$form_key = 'acp_adminnotifications';
 		add_form_key($form_key);
 
 		$sql = "SELECT * from " . $table_prefix . "adminnotifications ORDER BY create_time DESC";
