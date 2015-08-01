@@ -45,7 +45,7 @@ class 	_adminnotifications_module
 				));
 		}
 		$db->sql_freeresult($result);
-  		$template->assign_vars(array(
+		$template->assign_vars(array(
 			'S_ADMINNOTIFICATIONS_PAGE'		=> true,
 			'S_GROUP_OPTIONS'		=> group_select_options(false, false, false), // Show all groups
 			'U_ADMINNOTIFICATIONS_PATH'				=> './../adminnotifications/',

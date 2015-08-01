@@ -9,6 +9,7 @@
 */
 
 namespace alg\adminnotifications\notification;
+
 /**
 * Thanks for posts notifications class
 * This class handles notifying users when they have been thanked for a post
@@ -112,8 +113,8 @@ class fromadmin extends  \phpbb\notification\type\base
 	*/
 	public function get_title()
 	{
-        return $this->get_data('noty_title');
-    }
+		return $this->get_data('noty_title');
+	}
 	/**
 	* Users needed to query before this notification can be displayed
 	*
@@ -225,7 +226,7 @@ class fromadmin extends  \phpbb\notification\type\base
 		return parent::create_insert_array($fromadmin_data, $pre_create_data);
 	}
 
- 	/**
+	/**
 	* Function for preparing the data for update in an SQL query
 	* (The service handles insertion)
 	*

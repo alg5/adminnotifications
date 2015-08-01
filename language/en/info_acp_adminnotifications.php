@@ -64,7 +64,7 @@ $lang = array_merge($lang, array(
 	'ACP_ADMINNOTIFICATIONS_TOOLTIP_INFO'					=> 'Please, read the instruction ',
 	'ACP_ADMINNOTIFICATIONS_TOOLTIP_RESTORE'					=> 'Restore from the arhive  ',
 	'ACP_ADMINNOTIFICATIONS_TOOLTIP_DELETE'					=> 'Delete  from the arhive ',
- 
+
 	'ACP_ADMINNOTIFICATIONS_INFO_GROUP'					=> 'How to add a group to the recipient list',
 	'ACP_ADMINNOTIFICATIONS_INFO_USER'					=> 'How to add a user to the recipient list',
 	'ACP_ADMINNOTIFICATIONS_INFO_GROUP_DELETE'					=> 'How to delete a group from the recipient list',
