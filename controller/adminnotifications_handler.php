@@ -174,7 +174,7 @@ class adminnotifications_handler
 
 		if($noty_content == '')
 		{
-			$this->error[] = array('error' => $this->user->lang['	_ADMINNOTIFICATIONS_NO_TEXT']);
+			$this->error[] = array('error' => $this->user->lang['ACP_ADMINNOTIFICATIONS_NO_TEXT']);
 			return;
 		}
 		$u_ids	=  $this->request->variable('user_id',  array('' => 0));
@@ -196,7 +196,7 @@ class adminnotifications_handler
 		$ids = array_unique($ids);
 		if(!sizeof($ids))
 		{
-			$this->error[] = array('error' => $this->user->lang['	_ADMINNOTIFICATIONS_NO_USERS']);
+			$this->error[] = array('error' => $this->user->lang['ACP_ADMINNOTIFICATIONS_NO_USERS']);
 			return;
 		}
 		$uid = $bitfield = '';
@@ -217,9 +217,9 @@ class adminnotifications_handler
 				'noty_options'   => NOTY_BBCOD_OPTIONS,
 			);
 		$this->add_notification($notification_data);
-		$message = $this->user->lang['	_ADMINNOTIFICATIONS_SENT'];
-		$message_save = $this->user->lang['	_ADMINNOTIFICATIONS_NOTY_SAVE'];
-		$message_no_save = $this->user->lang['	_ADMINNOTIFICATIONS_NOTY_NO_SAVE'];
+		$message = $this->user->lang['ACP_ADMINNOTIFICATIONS_SENT'];
+		$message_save = $this->user->lang['ACP_ADMINNOTIFICATIONS_NOTY_SAVE'];
+		$message_no_save = $this->user->lang['ACP_ADMINNOTIFICATIONS_NOTY_NO_SAVE'];
 		$this->return = array(
 			'MESSAGE'		=> $message,
 			'MESSAGE_SAVE'		=> $message_save,
@@ -249,7 +249,7 @@ class adminnotifications_handler
 		$noty_id = $this->db->sql_nextid();
 
 		$this->return = array(
-			'MESSAGE'		=> $this->user->lang['	_ADMINNOTIFICATIONS_SAVED'] ,
+			'MESSAGE'		=> $this->user->lang['ACP_ADMINNOTIFICATIONS_SAVED'] ,
 			'noty_id'		=> $noty_id ,
 			'noty_title'		=> $noty_title ,
 			'noty_tooltip'		=> $this->character_limit($noty_content,60) ,
@@ -272,7 +272,7 @@ class adminnotifications_handler
 		}
 
 		$this->return = array(
-			'MESSAGE'		=> $this->user->lang['	_ADMINNOTIFICATIONS_RESTORED'] ,
+			'MESSAGE'		=> $this->user->lang['ACP_ADMINNOTIFICATIONS_RESTORED'] ,
 			'NOTY_TITLE'		=> $row['noty_title'] ,
 			'NOTY_CONTENT'		=> $row['noty_content'] ,
 			'NOTY_PARSE_TYPE'   => $row['parse_type'] ,
@@ -292,7 +292,7 @@ class adminnotifications_handler
 			return;
 		}
 		$this->return = array(
-			'MESSAGE'		=> $this->user->lang['	_ADMINNOTIFICATIONS_DELETED'] ,
+			'MESSAGE'		=> $this->user->lang['ACP_ADMINNOTIFICATIONS_DELETED'] ,
 			'ROW_ID'		=> $row_id ,
 		);
 	}
