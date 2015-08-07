@@ -8,7 +8,7 @@
 *
 */
 
-namespace phpbb\adminnotifications;
+namespace alg\adminnotifications;
 
 /**
 * Extension class for custom enable/disable/purge actions
