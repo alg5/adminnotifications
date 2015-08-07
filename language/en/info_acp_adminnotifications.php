@@ -68,6 +68,7 @@ $lang = array_merge($lang, array(
 	'ACP_ADMINNOTIFICATIONS_INFO_GROUP'					=> 'How to add a group to the recipient list',
 	'ACP_ADMINNOTIFICATIONS_INFO_USER'					=> 'How to add a user to the recipient list',
 	'ACP_ADMINNOTIFICATIONS_INFO_GROUP_DELETE'					=> 'How to delete a group from the recipient list',
+	'ACP_ADMINNOTIFICATIONS_INFO_USER_DELETE'					=> 'How to delete a user from the recipient list',
 	'ACP_ADMINNOTIFICATIONS_INFO_NOTY_SAVE'					=> 'How to save a notification',
 	'ACP_ADMINNOTIFICATIONS_INFO_NOTY_RESTORE'					=> 'How to restore a notification from the archive',
 	'ACP_ADMINNOTIFICATIONS_INFO_NOTY_DELETE'					=> 'How to delete a notification from the archive',

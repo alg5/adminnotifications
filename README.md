@@ -7,7 +7,8 @@ An administrator can compose and send notification. store it in archive, restore
 The instruction exists on setting page 
 Repository: https://github.com/alg5/adminnotifications
 Installation:
-Copy all the repo content to the folder ext/alg/adminnotifications/
+Copy all the repo content to the folder ext/alg/adminnotifications
+
 Go to the administrator panel: ACP -> Personalisation -> Extension manage
 Turn the "adminnotifications" extension on
 Supported languages:
@@ -23,6 +24,7 @@ Supported languages:
 Репозиторий: https://github.com/alg5/adminnotifications
 Инсталляция:
 Скопируйте всё содержимое репозитория в папку ext/alg/adminnotifications/
+
 Перейдите в Панель администратора: АСР-> Персонализация-> Управление расширениями 
 Включите расширение "adminnotifications"
 Поддерживаемые языки:
