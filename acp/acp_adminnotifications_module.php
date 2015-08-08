@@ -32,19 +32,22 @@ class acp_adminnotifications_module
 
 		$sql = "SELECT * from " . $table_prefix . "adminnotifications ORDER BY create_time DESC";
 		$result = $db->sql_query($sql);
-		foreach ($result as $row)
+		if ($result)
 		{
-				$template->assign_block_vars('notysaved', array(
-					'NOTY_ID'		=> $row['noty_id'],
-					'NOTY_TITLE'		=> $row['noty_title'],
-					'NOTY_CONTENT'		=> $row['noty_content'],
-					'NOTY_TOOLTIP'		=> $controller->character_limit($row['noty_content'],60) ,
-					'CREATE_TIME'		=> $user->format_date($row['create_time'] , "d/m/Y H:i"),
-					'PARSE_TYPE'		=> $row['parse_type'],
+			foreach ($result as $row)
+			{
+					$template->assign_block_vars('notysaved', array(
+						'NOTY_ID'		=> $row['noty_id'],
+						'NOTY_TITLE'		=> $row['noty_title'],
+						'NOTY_CONTENT'		=> $row['noty_content'],
+						'NOTY_TOOLTIP'		=> $controller->character_limit($row['noty_content'],60) ,
+						'CREATE_TIME'		=> $user->format_date($row['create_time'] , "d/m/Y H:i"),
+						'PARSE_TYPE'		=> $row['parse_type'],
 
-				));
+					));
+			}
+			$db->sql_freeresult($result);
 		}
-		$db->sql_freeresult($result);
 		$template->assign_vars(array(
 			'S_ADMINNOTIFICATIONS_PAGE'		=> true,
 			'S_GROUP_OPTIONS'		=> group_select_options(false, false, false), // Show all groups
