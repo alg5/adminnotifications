@@ -13,6 +13,7 @@ Go to the administrator panel: ACP -> Personalisation -> Extension manage
 Turn the "adminnotifications" extension on
 Supported languages:
 - English
+- Polish
 - Russian
 
 ### License
@@ -29,6 +30,7 @@ Supported languages:
 Включите расширение "adminnotifications"
 Поддерживаемые языки:
 - Английский
+- Польский
 - Русский
 
 ### Лицензия

@@ -32,7 +32,7 @@ class acp_adminnotifications_module
 
 		$sql = "SELECT * from " . $table_prefix . "adminnotifications ORDER BY create_time DESC";
 		$result = $db->sql_query($sql);
-		if ($result)
+		if (is_array($result) || is_object($result))
 		{
 			foreach ($result as $row)
 			{
