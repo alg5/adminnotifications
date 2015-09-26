@@ -114,11 +114,27 @@ display: inline-block;
 	padding-left: 17px;
 	height:20px;
 }
+.notification_list ul li img {
+    float: left;
+    height: auto !important;
+    margin-right: 5px;
+    max-height: 50px;
+    max-width: 50px;
+    width: auto !important;
+}
+.na_text {
+	
+}
+.na_text img {max-width: 100%; max-height: auto;}
+}
+#tblNotySaved {
+	width:360px;
+	margin-top: 15px;
+}
+#tblNotySaved thead, #tblNotySaved tbody { display: block; }
 
-/*thead, tbody { display: block; }
-
-tbody {
-    height: 185px;       /* Just for the demo          */
-    overflow-y: auto;    /* Trigger vertical scroll    */
-    overflow-x: hidden;  /* Hide the horizontal scroll */
-}*/
+#tblNotySaved tbody 
+{
+    height: 167px;      
+    overflow-y: auto;    
+}
