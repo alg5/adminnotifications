@@ -14,8 +14,8 @@ namespace alg\adminnotifications\acp;
 */
 class acp_adminnotifications_module
 {
-	var $u_action;
-	var $new_config = array();
+	const GUESTS = 1;
+	const BOTS = 6;
 
 	function main($id, $mode)
 	{
@@ -48,9 +48,12 @@ class acp_adminnotifications_module
 			}
 			$db->sql_freeresult($result);
 		}
+		$exclude_guests = array();
+		$exclude_ids[] = acp_adminnotifications_module::GUESTS;
+		$exclude_ids[] = acp_adminnotifications_module::BOTS;
 		$template->assign_vars(array(
 			'S_ADMINNOTIFICATIONS_PAGE'		=> true,
-			'S_GROUP_OPTIONS'		=> group_select_options(false, false, false), // Show all groups
+			'S_GROUP_OPTIONS'		=> group_select_options(false, $exclude_ids, false), // Show groups
 			'U_ADMINNOTIFICATIONS_PATH'				=> './../adminnotifications/',
 		));
 	}

@@ -12,6 +12,7 @@ Copy all the repo content to the folder ext/alg/adminnotifications
 Go to the administrator panel: ACP -> Personalisation -> Extension manage
 Turn the "adminnotifications" extension on
 Supported languages:
+- Dutch
 - English
 - Polish
 - Russian
@@ -30,6 +31,7 @@ Supported languages:
 Включите расширение "adminnotifications"
 Поддерживаемые языки:
 - Английский
+- Датский
 - Польский
 - Русский
 
