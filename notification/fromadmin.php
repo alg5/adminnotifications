@@ -191,7 +191,7 @@ class fromadmin extends  \phpbb\notification\type\base
 				$noty_content = $this->get_data('noty_content');
 			}
 
-		return '<div id="na_text" style="max-height:150px; overflow:auto;">' .  $noty_content . '</div>';
+		return '<div id="an_text"  class="an_text" >' .  $noty_content . '</div>';
 	}
 
 	/**
