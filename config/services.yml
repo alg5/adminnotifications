@@ -32,17 +32,9 @@ services:
     alg.adminnotifications.notification.type.fromadmin:
         class: alg\adminnotifications\notification\fromadmin
         scope: prototype # scope MUST be prototype for this to work!
-        arguments:
-            - @user_loader
-            - @dbal.conn
-            - @cache.driver
-            - @user
-            - @auth
-            - @config
-            - %core.root_path%
-            - %core.php_ext%
-            - %tables.notification_types%
-            - %tables.notifications%
-            - %tables.user_notifications%
+        parent: notification.type.base
+        calls:
+            - [set_user_loader, [@user_loader]]
+            - [set_notifications_table, [%tables.notifications%]]
         tags:
             - { name: notification.type }

@@ -53,6 +53,21 @@ class fromadmin extends  \phpbb\notification\type\base
 		'lang'	=> 'NOTIFICATION_TYPE_FROMADMIN',
 		'group'	=> 'NOTIFICATION_GROUP_MISCELLANEOUS',
 	);
+	/** @var string */
+	protected $notifications_table;
+
+	/** @var \phpbb\user_loader */
+	protected $user_loader;
+	public function set_notifications_table($notifications_table)
+	{
+		$this->notifications_table = $notifications_table;
+	}
+
+    
+	public function set_user_loader(\phpbb\user_loader $user_loader)
+	{
+		$this->user_loader = $user_loader;
+	}
 
 	/**
 	* Is available
@@ -223,7 +238,7 @@ class fromadmin extends  \phpbb\notification\type\base
 		$this->set_data('noty_bitfield', $fromadmin_data['noty_bitfield']);
 		$this->set_data('noty_options', $fromadmin_data['noty_options']);
 
-		return parent::create_insert_array($fromadmin_data, $pre_create_data);
+		parent::create_insert_array($fromadmin_data, $pre_create_data);
 	}
 
 	/**

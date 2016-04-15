@@ -135,7 +135,7 @@ class adminnotifications_handler
 		while ($row = $this->db->sql_fetchrow($result))
 		{
 			$user_id = $row['user_id'];
-			$key = htmlspecialchars_decode($row['username']	);
+			$key = htmlspecialchars($row['username']	);
 			$message .=  $key . "|$user_id\n";
 		}
 		$json_response = new \phpbb\json_response;
@@ -152,7 +152,7 @@ class adminnotifications_handler
 		$message='';
 		while ($row = $this->db->sql_fetchrow($result))
 		{
-			$key = $row['group_type'] == GROUP_SPECIAL ?  $this->user->lang['G_' . $row['group_name']] : htmlspecialchars_decode($row['group_name']	);
+			$key = $row['group_type'] == GROUP_SPECIAL ?  $this->user->lang['G_' . $row['group_name']] : htmlspecialchars($row['group_name']	);
 			if(strpos(utf8_strtoupper($key), $q) == 0)
 			{
 				$group_id=$row['group_id'];
@@ -234,7 +234,7 @@ class adminnotifications_handler
 		$noty_content =  utf8_normalize_nfc($this->request->variable('noty_content', '',true));
 		if ($noty_parse_type == PARSE_AS_HTML)
 		{
-			$noty_content = htmlspecialchars_decode($noty_content);
+			$noty_content = htmlspecialchars($noty_content);
 		}
 		$noty_create_time = time();
 		$save_data = array(
@@ -372,7 +372,7 @@ class adminnotifications_handler
 		$text_dst ='';
 		if ($parse_type == PARSE_AS_HTML)
 		{
-			$text_dst = htmlspecialchars_decode(utf8_normalize_nfc($text_src));
+			$text_dst = htmlspecialchars(utf8_normalize_nfc($text_src));
 		}
 		else
 		{
