@@ -1,11 +1,11 @@
 <?php
-/** 
+/**
 *
 * adminnotifications [English]
 *
 * @package adminnotifications
 * @copyright (c) 2014 alg
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
 

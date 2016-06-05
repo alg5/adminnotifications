@@ -10,7 +10,7 @@
 namespace alg\adminnotifications\acp;
 
 /**
-* @package 	
+* @package
 */
 class acp_adminnotifications_module
 {

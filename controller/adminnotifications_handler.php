@@ -105,7 +105,7 @@ class adminnotifications_handler
 		if (sizeof($this->error))
 		{
 			$return_error = array();
-			foreach($this->error as $cur_error)
+			foreach ($this->error as $cur_error)
 			{
 					// replace lang vars if possible
 					$return_error['ERROR'][] = (isset($this->user->lang[$cur_error['error']])) ? $this->user->lang[$cur_error['error']] : $cur_error['error'];
@@ -135,7 +135,7 @@ class adminnotifications_handler
 		while ($row = $this->db->sql_fetchrow($result))
 		{
 			$user_id = $row['user_id'];
-			$key = htmlspecialchars($row['username']	);
+			$key = htmlspecialchars_decode($row['username']	);
 			$message .=  $key . "|$user_id\n";
 		}
 		$json_response = new \phpbb\json_response;
@@ -152,8 +152,8 @@ class adminnotifications_handler
 		$message='';
 		while ($row = $this->db->sql_fetchrow($result))
 		{
-			$key = $row['group_type'] == GROUP_SPECIAL ?  $this->user->lang['G_' . $row['group_name']] : htmlspecialchars($row['group_name']	);
-			if(strpos(utf8_strtoupper($key), $q) == 0)
+			$key = $row['group_type'] == GROUP_SPECIAL ?  $this->user->lang['G_' . $row['group_name']] : htmlspecialchars_decode($row['group_name']	);
+			if (strpos(utf8_strtoupper($key), $q) == 0)
 			{
 				$group_id=$row['group_id'];
 				$message .= $key . "|$group_id\n";
@@ -172,7 +172,7 @@ class adminnotifications_handler
 		$noty_content_src = $noty_content;
 		$noty_parse_type = $this->request->variable('noty_parse_type', PARSE_AS_HTML);
 
-		if($noty_content == '')
+		if ($noty_content == '')
 		{
 			$this->error[] = array('error' => $this->user->lang['ACP_ADMINNOTIFICATIONS_NO_TEXT']);
 			return;
@@ -180,21 +180,21 @@ class adminnotifications_handler
 		$u_ids	=  $this->request->variable('user_id',  array('' => 0));
 		$g_ids	=  $this->request->variable('group_id',  array('' => 0));
 		$ids = array();
-		if($u_ids)
+		if ($u_ids)
 		{
 			$ids = array_merge($u_ids);
 		}
-		if($g_ids)
+		if ($g_ids)
 		{
 				$user_by_groups_id_ary = array();
 				$this->get_user_ids_by_groups_ary($user_by_groups_id_ary, $g_ids);
-				if(sizeof($user_by_groups_id_ary))
+				if (sizeof($user_by_groups_id_ary))
 				{
 					$ids = array_merge($ids, $user_by_groups_id_ary);
 				}
 		}
 		$ids = array_unique($ids);
-		if(!sizeof($ids))
+		if (!sizeof($ids))
 		{
 			$this->error[] = array('error' => $this->user->lang['ACP_ADMINNOTIFICATIONS_NO_USERS']);
 			return;
@@ -234,7 +234,7 @@ class adminnotifications_handler
 		$noty_content =  utf8_normalize_nfc($this->request->variable('noty_content', '',true));
 		if ($noty_parse_type == PARSE_AS_HTML)
 		{
-			$noty_content = htmlspecialchars($noty_content);
+			$noty_content = htmlspecialchars_decode($noty_content);
 		}
 		$noty_create_time = time();
 		$save_data = array(
@@ -325,7 +325,7 @@ class adminnotifications_handler
 			$result = $this->db->sql_query($sql);
 		$item_id = (int) $this->db->sql_fetchfield('max_item_id');
 		$this->db->sql_freeresult($result);
-		if(!$item_id)
+		if (!$item_id)
 		{
 			return 1;
 		}
@@ -372,7 +372,7 @@ class adminnotifications_handler
 		$text_dst ='';
 		if ($parse_type == PARSE_AS_HTML)
 		{
-			$text_dst = htmlspecialchars(utf8_normalize_nfc($text_src));
+			$text_dst = htmlspecialchars_decode(utf8_normalize_nfc($text_src));
 		}
 		else
 		{

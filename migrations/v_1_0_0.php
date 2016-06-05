@@ -9,7 +9,6 @@
 
 namespace alg\adminnotifications\migrations;
 
-
 class v_1_0_0 extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()
