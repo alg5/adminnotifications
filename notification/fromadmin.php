@@ -63,7 +63,6 @@ class fromadmin extends  \phpbb\notification\type\base
 		$this->notifications_table = $notifications_table;
 	}
 
-    
 	public function set_user_loader(\phpbb\user_loader $user_loader)
 	{
 		$this->user_loader = $user_loader;

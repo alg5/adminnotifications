@@ -9,7 +9,6 @@
 
 namespace alg\adminnotifications\migrations;
 
-
 class v_2_0_0 extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()
@@ -36,9 +35,7 @@ class v_2_0_0 extends \phpbb\db\migration\migration
 
 	public function update_data()
 	{
-		return array(
-			array('config.add', array('adminnotifications_version', '3.0.0')),
-            );
+		return array(array('config.add', array('adminnotifications_version', '3.0.0')),);
 	}
 
 	public function revert_data()
