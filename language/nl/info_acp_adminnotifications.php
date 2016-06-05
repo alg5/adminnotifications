@@ -1,11 +1,11 @@
 <?php
-/** 
+/**
 *
 * adminnotifications [Dutch]
 *
 * @package adminnotifications
 * @copyright (c) 2014 alg
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
 * [Dutch] translated by Dutch Translators (https://github.com/dutch-translators)
 *
 */

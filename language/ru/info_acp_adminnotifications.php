@@ -1,11 +1,11 @@
 <?php
-/** 
+/**
 *
 * adminnotifications [Russian]
 *
 * @package adminnotifications
 * @copyright (c) 2014 alg
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
 
@@ -37,7 +37,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'ACP_ADMINNOTIFICATIONS'		=> 'Уведомления администратора',
 	'ACP_ADMINNOTIFICATIONS_SETTINGS'				=> 'Настройки уведомлений',
-	'ACP_ADMINNOTIFICATIONS_EXPLAIN'				=> 'Выберите группы и/или отдельных пользователей для рассылки им уведомления <br /> Уведомление можно сформировать или выбрать из имеющихся сохраненных шаблонов ',
+	'ACP_ADMINNOTIFICATIONS_EXPLAIN'				=> 'Выберите группы и/или отдельных пользователей для рассылки им уведомления <br /> Уведомление можно сформировать или выбрать из имеюзихся сохраненных шаблонов ',
 	'ACP_ADMINNOTIFICATIONS_SEARCH_USER'				=> 'имя пользователя...',
 	'ACP_ADMINNOTIFICATIONS_SEARCH_USER_TOOLTIP'				=> 'Для быстрого поиска начинайте печатать имя пользователя',
 	'ACP_ADMINNOTIFICATIONS_SEARCH_GROUP'				=> 'группа...',
