@@ -242,7 +242,7 @@ class fromadmin extends  \phpbb\notification\type\base
 		$result = $this->db->sql_query($sql);
 		if ($row = $this->db->sql_fetchrow($result))
 		{
-			$data = unserialize($row['notification_data']);
+			$data = $row['notification_data'];
 		}
 		return $this->create_insert_array($fromadmin_data);
 	}
