@@ -1,14 +1,14 @@
-<!-- IF S_ADMINNOTIFICATIONS_PAGE -->
-<script type="text/javascript" >
-    var U_ADMINNOTIFICATIONS_PATH = '{U_ADMINNOTIFICATIONS_PATH}'
-    var L_ACP_ADMINNOTIFICATIONS_TOOLTIP_RESTORE = '{L_ACP_ADMINNOTIFICATIONS_TOOLTIP_RESTORE}'
-    var L_ACP_ADMINNOTIFICATIONS_TOOLTIP_DELETE = '{L_ACP_ADMINNOTIFICATIONS_TOOLTIP_DELETE}'
-</script>
-<!-- INCLUDEJS jquery.noty.js -->
-<!-- INCLUDEJS default.js -->
-<!-- INCLUDEJS topRight.js -->
-<!-- INCLUDEJS topCenter.js -->
+{% if S_ADMINNOTIFICATIONS_PAGE %}
+	<script type="text/javascript" >
+		var U_ADMINNOTIFICATIONS_PATH = '{U_ADMINNOTIFICATIONS_PATH}'
+		var L_ACP_ADMINNOTIFICATIONS_TOOLTIP_RESTORE = '{L_ACP_ADMINNOTIFICATIONS_TOOLTIP_RESTORE}'
+		var L_ACP_ADMINNOTIFICATIONS_TOOLTIP_DELETE = '{L_ACP_ADMINNOTIFICATIONS_TOOLTIP_DELETE}'
+	</script>
+	{% INCLUDEJS '@alg_adminnotifications/jquery.noty.js' %}
+	{% INCLUDEJS '@alg_adminnotifications/default.js' %}
+	{% INCLUDEJS '@alg_adminnotifications/topCenter.js' %}
+	{% INCLUDEJS '@alg_adminnotifications/topRight.js' %}
+	{% INCLUDEJS '@alg_adminnotifications/jquery.autocomplete.js' %}
+	{% INCLUDEJS '@alg_adminnotifications/acp_adminnotifications.js' %}
+{% endif %}
 
-<!-- INCLUDEJS jquery.autocomplete.js -->
-<!-- INCLUDEJS acp_adminnotifications.js -->
-<!-- ENDIF -->
