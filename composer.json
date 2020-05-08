@@ -3,7 +3,7 @@
     "type": "phpbb-extension",
     "description": "Admin's notifications",
     "homepage": "https://github.com/alg5/adminnotifications/tree/dev_3.2.x",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "time": "2016-04-08",
     "license": "GPL-2.0",
     "authors": [

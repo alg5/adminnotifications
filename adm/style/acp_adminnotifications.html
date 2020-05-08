@@ -1,145 +1,139 @@
-<!-- INCLUDE overall_header.html -->
+{% INCLUDE 'overall_header.html' %}
 
 <a name="maincontent"></a>
 
-<h1>{L_ACP_ADMINNOTIFICATIONS} <div class="an-info" title="{L_ACP_ADMINNOTIFICATIONS_TOOLTIP_INFO}" ><i class="fa fa-info-circle"></i></div></h1>
+<h1>{{ lang('ACP_ADMINNOTIFICATIONS') }} <div class="an-info" title="{{ lang('ACP_ADMINNOTIFICATIONS_TOOLTIP_INFO') }}" ><i class="fa fa-info-circle"></i></div></h1>
 <div id="info_block" >
     
-        <h2>{L_ACP_ADMINNOTIFICATIONS_INFO_GROUP}</h2>
-        <ul>
-            <li>{L_ACP_ADMINNOTIFICATIONS_INFO_GROUP_ADD_1}</li>
-            <li>{L_ACP_ADMINNOTIFICATIONS_INFO_GROUP_ADD_2}</li>
-            <li>{L_ACP_ADMINNOTIFICATIONS_INFO_GROUP_ADD_3}</li>
-        </ul>
-        <h2>{L_ACP_ADMINNOTIFICATIONS_INFO_USER}</h2>
-        <ul>
-            <li>{L_ACP_ADMINNOTIFICATIONS_INFO_USER_ADD_1}</li>
-        </ul>
-        <h2>{L_ACP_ADMINNOTIFICATIONS_INFO_GROUP_DELETE}</h2>
-        <ul>
-            <li>{L_ACP_ADMINNOTIFICATIONS_INFO_GROUP_DELETE_1}</li>
-        </ul>
-        <h2>{L_ACP_ADMINNOTIFICATIONS_INFO_USER_DELETE}</h2>
-        <ul>
-            <li>{L_ACP_ADMINNOTIFICATIONS_INFO_USER_DELETE_1}</li>
-        </ul>
-        <h2 >{L_ACP_ADMINNOTIFICATIONS_INFO_NOTY_SAVE}</h2>
-        <ul>
-            <li>{L_ACP_ADMINNOTIFICATIONS_INFO_NOTY_SAVE_1}</li>
-        </ul>
-        <h2 >{L_ACP_ADMINNOTIFICATIONS_INFO_NOTY_RESTORE}</h2>
-        <ul>
-            <li>{L_ACP_ADMINNOTIFICATIONS_INFO_NOTY_RESTORE_1}</li>
-        </ul>
-        <h2 >{L_ACP_ADMINNOTIFICATIONS_INFO_NOTY_DELETE}</h2>
-        <ul>
-            <li>{L_ACP_ADMINNOTIFICATIONS_INFO_NOTY_DELETE_1}</li>
-        </ul>
-        <div style="margin:0 auto; color:Green;"><button id="infoClose"><strong><i class="fa fa-check">{L_ACP_ADMINNOTIFICATIONS_INFO_NOTY_CLOSE}</i></strong></button></div>
+    <h2>{{ lang('ACP_ADMINNOTIFICATIONS_INFO_GROUP') }}</h2>
+    <ul>
+        <li>{{ lang('ACP_ADMINNOTIFICATIONS_INFO_GROUP_ADD_1') }}</li>
+        <li>{{ lang('ACP_ADMINNOTIFICATIONS_INFO_GROUP_ADD_2') }}</li>
+        <li>{{ lang('ACP_ADMINNOTIFICATIONS_INFO_GROUP_ADD_3') }}</li>
+    </ul>
+    <h2>{{ lang('ACP_ADMINNOTIFICATIONS_INFO_USER') }}</h2>
+    <ul>
+        <li>{{ lang('ACP_ADMINNOTIFICATIONS_INFO_USER_ADD_1') }}</li>
+    </ul>
+    <h2>{{ lang('ACP_ADMINNOTIFICATIONS_INFO_GROUP_DELETE') }}</h2>
+    <ul>
+        <li>{{ lang('ACP_ADMINNOTIFICATIONS_INFO_GROUP_DELETE_1') }}</li>
+    </ul>
+    <h2>{{ lang('ACP_ADMINNOTIFICATIONS_INFO_USER_DELETE') }}</h2>
+    <ul>
+        <li>{{ lang('ACP_ADMINNOTIFICATIONS_INFO_USER_DELETE_1') }}</li>
+    </ul>
+    <h2 >{{ lang('ACP_ADMINNOTIFICATIONS_INFO_NOTY_SAVE') }}</h2>
+    <ul>
+        <li>{{ lang('ACP_ADMINNOTIFICATIONS_INFO_NOTY_SAVE_1') }}</li>
+    </ul>
+    <h2 >{{ lang('ACP_ADMINNOTIFICATIONS_INFO_NOTY_RESTORE') }}</h2>
+    <ul>
+        <li>{{ lang('ACP_ADMINNOTIFICATIONS_INFO_NOTY_RESTORE_1') }}</li>
+    </ul>
+    <h2 >{{ lang('ACP_ADMINNOTIFICATIONS_INFO_NOTY_DELETE') }}</h2>
+    <ul>
+        <li>{{ lang('ACP_ADMINNOTIFICATIONS_INFO_NOTY_DELETE_1') }}</li>
+    </ul>
+    <div style="margin:0 auto; color:Green;"><button id="infoClose"><strong><i class="fa fa-check">{{ lang('ACP_ADMINNOTIFICATIONS_INFO_NOTY_CLOSE') }}</i></strong></button></div>
 </div>
 
-<p>{L_ACP_ADMINNOTIFICATIONS_EXPLAIN}</p>
+<p>{{ lang('ACP_ADMINNOTIFICATIONS_EXPLAIN') }}</p>
 
 <form id="postform" method="post" accept-charset="UTF-8" action="{U_ACTION}">
 <div id="an_recipients" class="panel">
     <div class="column1">
-        <h1><i class="fa fa-user"></i>{L_ACP_CAT_USERS}</h1>
+        <h1><i class="fa fa-user"></i>{{ lang('ACP_CAT_USERS') }}</h1>
 		<fieldset>
 			<dl>
 				<dd class="full"><select id="username_list" style="width: 100%;" name="user_id[]" multiple="multiple" size="5"></select></dd>
 			</dl>
 		</fieldset>
       <fieldset>
-            <legend><i class="fa fa-user-plus"></i>&nbsp;{L_ADD_USERS}</legend>
+            <legend><i class="fa fa-user-plus"></i>&nbsp;{{ lang('ADD_USERS') }}</legend>
             <dl>
 			    <dd class="full" style="text-align: left;">
-                    <lable for="usersearch">{L_ACP_ADMINNOTIFICATIONS_LIVE_SEARCH_CAPTION}{L_COLON}</lable>
-                    <input id="usersearch" class="inputbox search " type='search'   placeholder="{L_ACP_ADMINNOTIFICATIONS_SEARCH_USER}"  title="{L_ACP_ADMINNOTIFICATIONS_SEARCH_USER_TOOLTIP}" autocomplete="off" />
+                    <lable for="usersearch">{{ lang('ACP_ADMINNOTIFICATIONS_LIVE_SEARCH_CAPTION') }}{{ lang('COLON') }}</lable>
+                    <input id="usersearch" class="inputbox search " type='search'   placeholder="{{ lang('ACP_ADMINNOTIFICATIONS_SEARCH_USER') }}"  title="{{ lang('ACP_ADMINNOTIFICATIONS_SEARCH_USER_TOOLTIP') }}" autocomplete="off" />
                 </dd>
 			</dl>
         </fieldset>
     </div>
     <div class="column2">
-        <h1><i class="fa fa-users"></i>{L_ACP_GROUPS}</h1>
+        <h1><i class="fa fa-users"></i>{{ lang('ACP_GROUPS') }}</h1>
 		<fieldset>
 		    <dl>
 			    <dd class="full"><select  id="groupname_list" style="width: 100%;" name="group_id[]" multiple="multiple" size="5"></select></dd>
 		    </dl>
 		</fieldset>
 		<fieldset>
-			<legend><i class="fa fa-user-plus"></i>&nbsp;{L_ADD_GROUPS}</legend>
+			<legend><i class="fa fa-user-plus"></i>&nbsp;{{ lang('ADD_GROUPS') }}</legend>
 			<dl>
             	<dd class="full" style="text-align: left;">
-                    <lable for="groupsearch">{L_ACP_ADMINNOTIFICATIONS_LIVE_SEARCH_CAPTION}{L_COLON}</lable>
-                    <input id="groupsearch" class="inputbox search " type='search'   placeholder="{L_ACP_ADMINNOTIFICATIONS_SEARCH_GROUP}"  title="{L_ACP_ADMINNOTIFICATIONS_SEARCH_GROUP_TOOLTIP}" autocomplete="off" />
+                    <lable for="groupsearch">{{ lang('ACP_ADMINNOTIFICATIONS_LIVE_SEARCH_CAPTION') }}{{ lang('COLON') }}</lable>
+                    <input id="groupsearch" class="inputbox search " type='search'   placeholder="{{ lang('ACP_ADMINNOTIFICATIONS_SEARCH_GROUP') }}"  title="{{ lang('ACP_ADMINNOTIFICATIONS_SEARCH_GROUP_TOOLTIP') }}" autocomplete="off" />
                 </dd>
 				<dd class="full">
-                    <lable for="groupsearch">{L_ACP_ADMINNOTIFICATIONS_FROM_LIST}{L_COLON}</lable>
-                    <select id="groups" style="width: 100%; height: 107px;" multiple="multiple">{S_GROUP_OPTIONS}</select>
+                    <lable for="groupsearch">{{ lang('ACP_ADMINNOTIFICATIONS_FROM_LIST') }}{{ lang('COLON') }}</lable>
+                    <select id="groups" style="width: 100%; height: 107px;" multiple="multiple">{{ S_GROUP_OPTIONS }}</select>
                 </dd>
 			</dl>
             <dl>
-                <dd class="full"><input type="button" id="btnAddGroups" value="{L_ADD_GROUPS}" /></dd>
+                <dd class="full"><input type="button" id="btnAddGroups" value="{{ lang('ADD_GROUPS') }}" /></dd>
             </dl>
 		</fieldset>
     </div>
-
 </div>
 <!--***end panel***-->
 <div class="panel">
     <div id="notySavedBlock" class="column1">
-        <h1><i class="fa fa-archive"></i>{L_ACP_ADMINNOTIFICATIONS_ARCHIVE}</h1>
-        <div id="noNotySavedBlock" class="forumbg" <!-- IF .notysaved -->style="display:none;" <!-- ENDIF -->>
+        <h1><i class="fa fa-archive"></i>{{ lang('ACP_ADMINNOTIFICATIONS_ARCHIVE') }}</h1>
+        <div id="noNotySavedBlock" class="forumbg" {% if notysaved %}style="display:none;" {% endif %}>
             <div class="inner">
-			    <strong>{L_ACP_ADMINNOTIFICATIONS_NO_SAVED}</strong>
+			    <strong>{{ lang('ACP_ADMINNOTIFICATIONS_NO_SAVED') }}</strong>
 			    </div>
         </div>
         <table id="tblNotySaved" class="table1 forums responsive show-header" style="margin-top: 15px;"  >
             <thead  >
                 <tr>
-                    <th style="width:175px;">{L_ACP_ADMINNOTIFICATIONS_CAPTION_TITLE}</th>
-                    <th style="width:120px;">{L_ACP_ADMINNOTIFICATIONS_CAPTION_DATE}</th>
-                    <th  style="width:65px;">{L_ACTION}</th>
+                    <th style="width:175px;">{{ lang('ACP_ADMINNOTIFICATIONS_CAPTION_TITLE') }}</th>
+                    <th style="width:120px;">{{ lang('ACP_ADMINNOTIFICATIONS_CAPTION_DATE') }}</th>
+                    <th  style="width:70px;">{{ lang('ACTION') }}</th>
                 </tr>
             </thead>
             <tbody >
-                <!-- BEGIN notysaved -->
+                {% for noty in notysaved %}
                     <tr>
-                        <td   style="width:175px;" title="{notysaved.NOTY_TOOLTIP}">{notysaved.NOTY_TITLE}</td>
-                        <td  style="width:120px;">{notysaved.CREATE_TIME}</td>
-                        <td  style="width:65px;" align="center"><div class="an-action an-action-restore"  data-noty_id="{notysaved.NOTY_ID}" title="{L_ACP_ADMINNOTIFICATIONS_TOOLTIP_RESTORE}"><i class="fa fa-download"></i></div> <div class="an-action an-action-delete"  data-noty_id="{notysaved.NOTY_ID}" title="{L_ACP_ADMINNOTIFICATIONS_TOOLTIP_DELETE}"><i class="fa fa-trash-o"></i></div></td>
+                        <td   style="width:175px;" title="{noty.NOTY_TOOLTIP}">{noty.NOTY_TITLE}</td>
+                        <td  style="width:120px;">{noty.CREATE_TIME}</td>
+                        <td  style="width:70px;" align="center"><div class="an-action an-action-restore"  data-noty_id="{noty.NOTY_ID}" title="{{ lang('ACP_ADMINNOTIFICATIONS_TOOLTIP_RESTORE') }}"><i class="fa fa-download"></i></div> <div class="an-action an-action-delete"  data-noty_id="{noty.NOTY_ID}" title="{{ lang('ACP_ADMINNOTIFICATIONS_TOOLTIP_DELETE') }}"><i class="fa fa-trash-o"></i></div></td>
                     </tr>
-                <!-- END notysaved -->
-
+                {% endfor %}
             </tbody>
         </table>
     </div>
     <div id="notyComposeAndSendBlock" class="column2">    
-        <h1><i class="fa fa-bell"></i>{L_NOTIFY}</h1>
+        <h1><i class="fa fa-bell"></i>{{ lang('NOTIFY') }}</h1>
         <fieldset style="padding-bottom:0; ">
             <dl style="margin-bottom:0; ">
 				<dd class="full" style="text-align: left;">
-                    <lable for="noty_title">{L_ACP_ADMINNOTIFICATIONS_NOTY_TITLE}{L_COLON}</lable>
-                    <input type="text" id="noty_title" name="noty_title"  style="width: 100%;" value="{L_NOTIFICATION_FROMADMIN}"  maxlength="50" />
+                    <lable for="noty_title">{{ lang('ACP_ADMINNOTIFICATIONS_NOTY_TITLE') }}{{ lang('COLON') }}</lable>
+                    <input type="text" id="noty_title" name="noty_title"  style="width: 100%;" value="{{ lang('NOTIFICATION_FROMADMIN') }}"  maxlength="50" />
                 </dd>
 				<dd class="full" style="text-align: left;">
-                    <lable for="usersearch"><span style="color:Red"><b>(*)</b></span>{L_ACP_ADMINNOTIFICATIONS_NOTY_CONTENT}{L_COLON}</lable>
+                    <lable for="usersearch"><span style="color:Red"><b>(*)</b></span>{{ lang('ACP_ADMINNOTIFICATIONS_NOTY_CONTENT') }}{{ lang('COLON') }}</lable>
                     <textarea id="noty_content" name="noty_content" rows="5" cols="5" style="width: 100%; height: 60px;"></textarea>
-                    <label><input type="radio" class="radio"  name="noty_parse_type"  value="0"<!-- IF S_FORUM_SPONSOR_HTML_CHECKED -->checked="checked"<!-- ENDIF -->  /> {L_USE_HTML}</label>
-                    <label><input type="radio" class="radio " name="noty_parse_type"   value="1"<!-- IF !S_FORUM_SPONSOR_HTML_CHECKED -->checked="checked"<!-- ENDIF --> /> {L_USE_BBCODE}</label>
+                    <label><input type="radio" class="radio"  name="noty_parse_type"  value="0"{% if S_FORUM_SPONSOR_HTML_CHECKED %}checked="checked"{% endif %}  /> {{ lang('USE_HTML') }}</label>
+                    <label><input type="radio" class="radio " name="noty_parse_type"   value="1"{% if !S_FORUM_SPONSOR_HTML_CHECKED %}checked="checked"{% endif %} /> {{ lang('USE_BBCODE') }}</label>
                 </dd>
 				<dd class="full" style="text-align: center; vertical-align:bottom;padding-top:15px;">
                     <div id="loader"></div>
-                    <!--<button class="an-send" type="submit"   id="btnsave"><i class="fa fa-upload"></i> {L_ACP_ADMINNOTIFICATIONS_NOTY_SAVE_SHORT}</button>-->
-                    <button class="an-send" type="submit" name="submit"  id="submit"><i class="fa fa-paper-plane"></i> {L_ACP_ADMINNOTIFICATIONS_SEND}</button>
+                    <button class="an-send" type="submit" name="submit"  id="submit"><i class="fa fa-paper-plane"></i> {{ lang('ACP_ADMINNOTIFICATIONS_SEND') }}</button>
                 </dd>
 			</dl>
-            
         </fieldset>
-        
     </div>
-
 </div>
-	{S_FORM_TOKEN}
+	{{ S_FORM_TOKEN }}
 </form>
-<!-- INCLUDE overall_footer.html -->
+{% INCLUDE 'overall_footer.html' %}
