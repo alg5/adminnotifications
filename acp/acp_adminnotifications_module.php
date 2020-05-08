@@ -34,7 +34,7 @@ class acp_adminnotifications_module
 		$result = $db->sql_query($sql);
 		if (is_array($result) || is_object($result))
 		{
-			foreach ($result as $row)
+			while ($row = $db->sql_fetchrow($result))
 			{
 					$template->assign_block_vars('notysaved', array(
 						'NOTY_ID'		=> $row['noty_id'],
