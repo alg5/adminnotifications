@@ -23,11 +23,11 @@
     "extra": {
         "display-name": "Admin's notifications",
         "soft-require": {
-           "phpbb/phpbb": "3.1.*@dev"
+           "phpbb/phpbb": "3.2.*@dev"
         },
         "version-check": {
             "host": "alg5.github.io",
-            "directory": "/versions_3.2",
+            "directory": "/versions_3_X",
             "filename": "adminnotifications.json"
         }
     }
