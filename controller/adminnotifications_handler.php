@@ -11,9 +11,9 @@ namespace alg\adminnotifications\controller;
 
 class adminnotifications_handler
 {
-	const PARSE_AS_HTML = 0; 
-	const PARSE_AS_BBCODE = 1; 
-	const NOTY_BBCOD_OPTIONS = 7; 
+	const PARSE_AS_HTML = 0;
+	const PARSE_AS_BBCODE = 1;
+	const NOTY_BBCOD_OPTIONS = 7;
 
 	/** @var \phpbb\db\driver\driver_interface */
 	protected $db;
@@ -38,7 +38,7 @@ class adminnotifications_handler
 	* @access public
 	*/
 
-	public function __construct( \phpbb\db\driver\driver_interface $db, \phpbb\user $user, \phpbb\request\request_interface $request, \phpbb\notification\manager $notification_manager, $adminnotifications_table)
+	public function __construct(\phpbb\db\driver\driver_interface $db, \phpbb\user $user, \phpbb\request\request_interface $request, \phpbb\notification\manager $notification_manager, $adminnotifications_table)
 	{
 		$this->db = $db;
 		$this->user = $user;
