@@ -2,14 +2,14 @@
     "name": "alg/adminnotifications",
     "type": "phpbb-extension",
     "description": "Admin's notifications",
-    "homepage": "https://github.com/alg5/adminnotifications",
-    "version": "1.0.7",
-    "time": "2015-01-31",
+    "homepage": "https://github.com/alg5/adminnotifications/tree/dev_3.2.x",
+    "version": "2.0.4",
+    "time": "2021-01-12",
     "license": "GPL-2.0",
     "authors": [
         {
             "name": "Alg",
-            "homepage": "http://www.chugunok.net",
+            "homepage": "https://www.phpbbguru.net/community/viewtopic.php?f=64&t=44314",
             "role": "Developer"
         }
        
@@ -23,11 +23,11 @@
     "extra": {
         "display-name": "Admin's notifications",
         "soft-require": {
-           "phpbb/phpbb": "3.1.*@dev"
+           "phpbb/phpbb": "3.2.*@dev"
         },
         "version-check": {
             "host": "alg5.github.io",
-            "directory": "/versions",
+            "directory": "/versions_3_X",
             "filename": "adminnotifications.json"
         }
     }

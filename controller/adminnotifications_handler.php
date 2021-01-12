@@ -11,69 +11,43 @@ namespace alg\adminnotifications\controller;
 
 class adminnotifications_handler
 {
-	/** @var \phpbb\config\config */
-	protected $config;
+	const PARSE_AS_HTML = 0;
+	const PARSE_AS_BBCODE = 1;
+	const NOTY_BBCOD_OPTIONS = 7;
 
 	/** @var \phpbb\db\driver\driver_interface */
 	protected $db;
 
-	/** @var \phpbb\auth\auth */
-	protected $auth;
-
-	/** @var \phpbb\template\template */
-	protected $template;
-
 	/** @var \phpbb\user */
 	protected $user;
-
-	/** @var string phpBB root path */
-	protected $root_path;
-
-	/** @var string PHP extension */
-	protected $php_ext;
 
 	/** @var \phpbb\request\request_interface */
 	protected $request;
 
-	/** @var string PHP extension */
-	protected $table_prefix;
+	/** @var \phpbb\notification\manager */
+	protected $notification_manager;
 
-	/** @var array */
-	protected $thankers = array();
+	/**
+	* Constructor
+	* @param \phpbb\db\driver\driver_interface	$db					DBAL object
+	* @param \phpbb\user			$user				User object
+	* @param \phpbb\request\request		$request	Request object
+	* @param \phpbb\notification\manager $notification_manager
+	* @param array								$return_error		array
 
-	public function __construct(\phpbb\config\config $config, \phpbb\db\driver\driver_interface $db, \phpbb\auth\auth $auth, \phpbb\template\template $template, \phpbb\user $user, $phpbb_root_path, $php_ext, \phpbb\request\request_interface $request, $table_prefix, \phpbb\notification\manager $notification_manager, $users_table, $groups_table, $notifications_table, $adminnotifications_table)
+	* @access public
+	*/
+
+	public function __construct(\phpbb\db\driver\driver_interface $db, \phpbb\user $user, \phpbb\request\request_interface $request, \phpbb\notification\manager $notification_manager, $adminnotifications_table)
 	{
-		$this->config = $config;
 		$this->db = $db;
-		$this->auth = $auth;
-		$this->template = $template;
 		$this->user = $user;
-		$this->phpbb_root_path = $phpbb_root_path;
-		$this->php_ext = $php_ext;
 		$this->request = $request;
-		$this->table_prefix = $table_prefix;
 		$this->notification_manager = $notification_manager;
-		$this->users_table = $users_table;
-		$this->groups_table = $groups_table;
-		$this->notifications_table = $notifications_table;
 		$this->adminnotifications_table = $adminnotifications_table;
 
 		$this->return = array(); // save returned data in here
 		$this->error = array(); // save errors in here
-
-		if (!defined('PARSE_AS_HTML'))
-		{
-			define('PARSE_AS_HTML', 0);
-		}
-		if (!defined('PARSE_AS_BBCODE'))
-		{
-			define('PARSE_AS_BBCODE', 1);
-		}
-		if (!defined('NOTY_BBCOD_OPTIONS'))
-		{
-			define('NOTY_BBCOD_OPTIONS', 7);
-		}
-
 	}
 
 	public function main($action)
@@ -100,7 +74,6 @@ class adminnotifications_handler
 				break;
 			default:
 				$this->error[] = array('error' => $this->user->lang['INCORRECT_SEARCH']);
-
 		}
 		if (sizeof($this->error))
 		{
@@ -124,12 +97,10 @@ class adminnotifications_handler
 	private function live_search_user()
 	{
 		$q = utf8_strtoupper(utf8_normalize_nfc($this->request->variable('q', '',true)));
-
-		$sql = "SELECT user_id, username  FROM " . $this->users_table .
+		$sql = "SELECT user_id, username  FROM " . USERS_TABLE .
 					" WHERE user_type <> " . USER_IGNORE .
 					" AND username_clean " . $this->db->sql_like_expression(utf8_clean_string( $this->db->sql_escape($q)) . $this->db->get_any_char());
 					" ORDER BY username";
-
 		$result = $this->db->sql_query($sql);
 		$message='';
 		while ($row = $this->db->sql_fetchrow($result))
@@ -140,13 +111,11 @@ class adminnotifications_handler
 		}
 		$json_response = new \phpbb\json_response;
 		$json_response->send($message);
-
 	}
 	private function live_search_group()
 	{
 		$q = utf8_strtoupper(utf8_normalize_nfc($this->request->variable('q', '',true)));
-
-		$sql = "SELECT group_id, group_name, group_type  FROM " . $this->groups_table .
+		$sql = "SELECT group_id, group_name, group_type  FROM " . GROUPS_TABLE .
 					" ORDER BY group_type DESC, group_name ASC";
 		$result = $this->db->sql_query($sql);
 		$message='';
@@ -161,17 +130,13 @@ class adminnotifications_handler
 		}
 		$json_response = new \phpbb\json_response;
 		$json_response->send($message);
-
 	}
 	private function send_notification()
 	{
-		include_once($this->phpbb_root_path . 'includes/functions_user.' . $this->php_ext);
-
 		$noty_title = utf8_normalize_nfc($this->request->variable('noty_title', '',true));
 		$noty_content = utf8_normalize_nfc($this->request->variable('noty_content', '',true));
 		$noty_content_src = $noty_content;
-		$noty_parse_type = $this->request->variable('noty_parse_type', PARSE_AS_HTML);
-
+		$noty_parse_type = $this->request->variable('noty_parse_type', self::PARSE_AS_HTML);
 		if ($noty_content == '')
 		{
 			$this->error[] = array('error' => $this->user->lang['ACP_ADMINNOTIFICATIONS_NO_TEXT']);
@@ -186,12 +151,12 @@ class adminnotifications_handler
 		}
 		if ($g_ids)
 		{
-				$user_by_groups_id_ary = array();
-				$this->get_user_ids_by_groups_ary($user_by_groups_id_ary, $g_ids);
-				if (sizeof($user_by_groups_id_ary))
-				{
-					$ids = array_merge($ids, $user_by_groups_id_ary);
-				}
+			$user_by_groups_id_ary = array();
+			$this->get_user_ids_by_groups_ary($user_by_groups_id_ary, $g_ids);
+			if (sizeof($user_by_groups_id_ary))
+			{
+				$ids = array_merge($ids, $user_by_groups_id_ary);
+			}
 		}
 		$ids = array_unique($ids);
 		if (!sizeof($ids))
@@ -200,7 +165,7 @@ class adminnotifications_handler
 			return;
 		}
 		$uid = $bitfield = '';
-		$options=NOTY_BBCOD_OPTIONS;
+		$options=self::NOTY_BBCOD_OPTIONS;
 		$noty_content = $this->parse_text_by_parse_type($noty_parse_type, $noty_content, $uid, $bitfield, $options);
 
 		$new_item_id = $this->get_item_id_notification();
@@ -214,7 +179,7 @@ class adminnotifications_handler
 				'noty_parse_type'   => $noty_parse_type,
 				'noty_uid'   => $uid,
 				'noty_bitfield'   => $bitfield,
-				'noty_options'   => NOTY_BBCOD_OPTIONS,
+				'noty_options'   => self::NOTY_BBCOD_OPTIONS,
 			);
 		$this->add_notification($notification_data);
 		$message = $this->user->lang['ACP_ADMINNOTIFICATIONS_SENT'];
@@ -225,14 +190,13 @@ class adminnotifications_handler
 			'MESSAGE_SAVE'		=> $message_save,
 			'MESSAGE_NO_SAVE'		=> $message_no_save,
 		);
-
 	}
 	private function save_template()
 	{
-		$noty_parse_type = $this->request->variable('noty_parse_type', PARSE_AS_HTML);
+		$noty_parse_type = $this->request->variable('noty_parse_type', self::PARSE_AS_HTML);
 		$noty_title = utf8_normalize_nfc($this->request->variable('noty_title', '',true));
 		$noty_content =  utf8_normalize_nfc($this->request->variable('noty_content', '',true));
-		if ($noty_parse_type == PARSE_AS_HTML)
+		if ($noty_parse_type == self::PARSE_AS_HTML)
 		{
 			$noty_content = htmlspecialchars_decode($noty_content);
 		}
@@ -258,7 +222,6 @@ class adminnotifications_handler
 			'noty_parse_type'   => $noty_parse_type,
 		);
 	}
-
 	private function restore_template()
 	{
 		$noty_id = $this->request->variable('noty_id', 0);
@@ -270,7 +233,6 @@ class adminnotifications_handler
 			$this->error[] = array('error' => $this->user->lang['INCORRECT_SEARCH']);
 			return;
 		}
-
 		$this->return = array(
 			'MESSAGE'		=> $this->user->lang['ACP_ADMINNOTIFICATIONS_RESTORED'] ,
 			'NOTY_TITLE'		=> $row['noty_title'] ,
@@ -308,7 +270,7 @@ class adminnotifications_handler
 	public function notification_exists($notification_data, $notification_type_name)
 	{
 		$notification_type_id = $this->notification_manager->get_notification_type_id($notification_type_name);
-		$sql = 'SELECT notification_id FROM ' . $this->notifications_table . '
+		$sql = 'SELECT notification_id FROM ' . NOTIFICATIONS_TABLE . '
 			WHERE notification_type_id = ' . (int) $notification_type_id . '
 				AND item_id = ' . (int) $commandgame_data['action_id'];
 		$result = $this->db->sql_query($sql);
@@ -320,7 +282,7 @@ class adminnotifications_handler
 	public function get_item_id_notification($notification_type_name = 'alg.adminnotifications.notification.type.fromadmin')
 	{
 		$notification_type_id = $this->notification_manager->get_notification_type_id($notification_type_name);
-		$sql = 'SELECT  max(item_id) as max_item_id FROM ' . $this->notifications_table . '
+		$sql = 'SELECT  max(item_id) as max_item_id FROM ' . NOTIFICATIONS_TABLE . '
 			WHERE notification_type_id = ' . (int) $notification_type_id ;
 			$result = $this->db->sql_query($sql);
 		$item_id = (int) $this->db->sql_fetchfield('max_item_id');
@@ -353,7 +315,7 @@ class adminnotifications_handler
 		$user_id_ary = $username_ary = array();
 
 		$sql = "SELECT u.user_id" .
-					" FROM " . $this->users_table .
+					" FROM " . USERS_TABLE .
 					" u JOIN " . USER_GROUP_TABLE . " ug on u.user_id = ug.user_id " .
 					" WHERE  u.user_type <>" . USER_IGNORE . " AND " .  $this->db->sql_in_set('ug.group_id', $group_id_ary);
 		$this->sql = $sql;
@@ -370,23 +332,15 @@ class adminnotifications_handler
 	private function parse_text_by_parse_type($parse_type, $text_src, &$uid, &$bitfield, $options)
 	{
 		$text_dst ='';
-		if ($parse_type == PARSE_AS_HTML)
+		if ($parse_type == self::PARSE_AS_HTML)
 		{
 			$text_dst = htmlspecialchars_decode(utf8_normalize_nfc($text_src));
 		}
 		else
 		{
-				//PARSE_AS_BBCODE
-				$text_dst = $text_src;
-			generate_text_for_storage(
-				$text_dst,
-				$uid,
-				$bitfield,
-				$options,
-				true,
-				true,
-				true
-			);
+			//PARSE_AS_BBCODE
+			$text_dst = $text_src;
+			generate_text_for_storage($text_dst, $uid, $bitfield, $options, true, true, true);
 		}
 		return $text_dst;
 	}
@@ -402,5 +356,4 @@ class adminnotifications_handler
 			return $title;
 		}
 	}
-
 }

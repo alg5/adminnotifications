@@ -14,12 +14,12 @@ class adminnotifications_info
 	function module()
 	{
 		return array(
-			'filename'	=> '\alg\adminnotifications\acp\acp_adminnotifications_module',
-			'title'		=> 'ACP_ADMINNOTIFICATIONS_SETTINGS',
-			'version'	=> '1.0.0',
-			'modes'		=> array(
-				'adminnotifications'			=> array('title' => 'ACP_ADMINNOTIFICATIONS_SETTINGS', 'auth' => 'ext_alg/adminnotifications && acl_a_board', 'cat' => array('ACP_ADMINNOTIFICATIONS')),
-			),
+				'filename'	=> '\alg\adminnotifications\acp\acp_adminnotifications_module',
+				'title'		=> 'ACP_ADMINNOTIFICATIONS_SETTINGS',
+				'version'	=> '1.0.0',
+				'modes'		=> array(
+						'adminnotifications'			=> array('title' => 'ACP_ADMINNOTIFICATIONS_SETTINGS', 'auth' => 'ext_alg/adminnotifications && acl_a_board', 'cat' => array('ACP_ADMINNOTIFICATIONS')),
+				),
 		);
 	}
 

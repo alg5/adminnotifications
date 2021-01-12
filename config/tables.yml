@@ -1,3 +1,2 @@
 parameters:
-    tables.groups: %core.table_prefix%groups
-    tables.adminnotifications: %core.table_prefix%adminnotifications
+    tables.adminnotifications: '%core.table_prefix%adminnotifications'

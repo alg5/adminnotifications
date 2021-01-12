@@ -34,19 +34,18 @@ class acp_adminnotifications_module
 		$result = $db->sql_query($sql);
 		if (is_array($result) || is_object($result))
 		{
-			foreach ($result as $row)
+			while ($row = $db->sql_fetchrow($result))
 			{
-					$template->assign_block_vars('notysaved', array(
-						'NOTY_ID'		=> $row['noty_id'],
-						'NOTY_TITLE'		=> $row['noty_title'],
-						'NOTY_CONTENT'		=> $row['noty_content'],
-						'NOTY_TOOLTIP'		=> $controller->character_limit($row['noty_content'],60) ,
-						'CREATE_TIME'		=>  $row['create_time'] ? $user->format_date($row['create_time'] , "d/m/Y H:i") :0,
-						'PARSE_TYPE'		=> $row['parse_type'],
-
-					));
+				$template->assign_block_vars('notysaved', [
+					'NOTY_ID'		=> $row['noty_id'],
+					'NOTY_TITLE'	=> $row['noty_title'],
+					'NOTY_CONTENT'	=> $row['noty_content'],
+					'NOTY_TOOLTIP'	=> $controller->character_limit($row['noty_content'],60) ,
+					'CREATE_TIME'	=> $row['create_time'] ? $user->format_date($row['create_time'] , "d/m/Y H:i") : 0,
+					'PARSE_TYPE'	=> $row['parse_type'],
+				]);
 			}
-			$db->sql_freeresult($result);
+		$db->sql_freeresult($result);
 		}
 		$exclude_guests = array();
 		$exclude_ids[] = acp_adminnotifications_module::GUESTS;

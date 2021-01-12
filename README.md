@@ -1,6 +1,6 @@
 
 adminnotifications
-[![Build Status](https://travis-ci.org/alg5/adminnotifications.svg?branch=master)](https://travis-ci.org/alg5/adminnotifications)
+[![Build Status](https://travis-ci.org/alg5/adminnotifications.svg?branch=dev_3.2.x)](https://travis-ci.org/alg5/adminnotifications)
 
 The extension allows to send notifications to users and groups for administrators of f board
 An administrator can compose and send notification. store it in archive, restore and delete from archive
