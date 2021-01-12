@@ -125,8 +125,12 @@ display: inline-block;
 .na_text {
 	
 }
-.na_text img {max-width: 100%; max-height: auto;}
+.na_text img 
+{
+	max-width: 100%; 
+	max-height: auto;
 }
+
 #tblNotySaved {
 	width:360px;
 	margin-top: 15px;

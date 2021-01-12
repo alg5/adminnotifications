@@ -44,44 +44,44 @@
 <div id="an_recipients" class="panel">
     <div class="column1">
         <h1><i class="fa fa-user"></i>{{ lang('ACP_CAT_USERS') }}</h1>
-		<fieldset>
-			<dl>
-				<dd class="full"><select id="username_list" style="width: 100%;" name="user_id[]" multiple="multiple" size="5"></select></dd>
-			</dl>
-		</fieldset>
+            <fieldset>
+                <dl>
+                        <dd class="full"><select id="username_list" style="width: 100%;" name="user_id[]" multiple="multiple" size="5"></select></dd>
+                </dl>
+            </fieldset>
       <fieldset>
             <legend><i class="fa fa-user-plus"></i>&nbsp;{{ lang('ADD_USERS') }}</legend>
             <dl>
-			    <dd class="full" style="text-align: left;">
+                <dd class="full" style="text-align: left;">
                     <lable for="usersearch">{{ lang('ACP_ADMINNOTIFICATIONS_LIVE_SEARCH_CAPTION') }}{{ lang('COLON') }}</lable>
                     <input id="usersearch" class="inputbox search " type='search'   placeholder="{{ lang('ACP_ADMINNOTIFICATIONS_SEARCH_USER') }}"  title="{{ lang('ACP_ADMINNOTIFICATIONS_SEARCH_USER_TOOLTIP') }}" autocomplete="off" />
                 </dd>
-			</dl>
+            </dl>
         </fieldset>
     </div>
     <div class="column2">
         <h1><i class="fa fa-users"></i>{{ lang('ACP_GROUPS') }}</h1>
-		<fieldset>
-		    <dl>
-			    <dd class="full"><select  id="groupname_list" style="width: 100%;" name="group_id[]" multiple="multiple" size="5"></select></dd>
-		    </dl>
-		</fieldset>
-		<fieldset>
-			<legend><i class="fa fa-user-plus"></i>&nbsp;{{ lang('ADD_GROUPS') }}</legend>
-			<dl>
-            	<dd class="full" style="text-align: left;">
-                    <lable for="groupsearch">{{ lang('ACP_ADMINNOTIFICATIONS_LIVE_SEARCH_CAPTION') }}{{ lang('COLON') }}</lable>
-                    <input id="groupsearch" class="inputbox search " type='search'   placeholder="{{ lang('ACP_ADMINNOTIFICATIONS_SEARCH_GROUP') }}"  title="{{ lang('ACP_ADMINNOTIFICATIONS_SEARCH_GROUP_TOOLTIP') }}" autocomplete="off" />
-                </dd>
-				<dd class="full">
-                    <lable for="groupsearch">{{ lang('ACP_ADMINNOTIFICATIONS_FROM_LIST') }}{{ lang('COLON') }}</lable>
-                    <select id="groups" style="width: 100%; height: 107px;" multiple="multiple">{{ S_GROUP_OPTIONS }}</select>
-                </dd>
-			</dl>
+        <fieldset>
+            <dl>
+                    <dd class="full"><select  id="groupname_list" style="width: 100%;" name="group_id[]" multiple="multiple" size="5"></select></dd>
+            </dl>
+        </fieldset>
+        <fieldset>
+            <legend><i class="fa fa-user-plus"></i>&nbsp;{{ lang('ADD_GROUPS') }}</legend>
+                <dl>
+                    <dd class="full" style="text-align: left;">
+                        <lable for="groupsearch">{{ lang('ACP_ADMINNOTIFICATIONS_LIVE_SEARCH_CAPTION') }}{{ lang('COLON') }}</lable>
+                        <input id="groupsearch" class="inputbox search " type='search'   placeholder="{{ lang('ACP_ADMINNOTIFICATIONS_SEARCH_GROUP') }}"  title="{{ lang('ACP_ADMINNOTIFICATIONS_SEARCH_GROUP_TOOLTIP') }}" autocomplete="off" />
+                    </dd>
+                    <dd class="full">
+                        <lable for="groupsearch">{{ lang('ACP_ADMINNOTIFICATIONS_FROM_LIST') }}{{ lang('COLON') }}</lable>
+                        <select id="groups" style="width: 100%; height: 107px;" multiple="multiple">{{ S_GROUP_OPTIONS }}</select>
+                    </dd>
+            </dl>
             <dl>
                 <dd class="full"><input type="button" id="btnAddGroups" value="{{ lang('ADD_GROUPS') }}" /></dd>
             </dl>
-		</fieldset>
+        </fieldset>
     </div>
 </div>
 <!--***end panel***-->
@@ -90,8 +90,8 @@
         <h1><i class="fa fa-archive"></i>{{ lang('ACP_ADMINNOTIFICATIONS_ARCHIVE') }}</h1>
         <div id="noNotySavedBlock" class="forumbg" {% if notysaved %}style="display:none;" {% endif %}>
             <div class="inner">
-			    <strong>{{ lang('ACP_ADMINNOTIFICATIONS_NO_SAVED') }}</strong>
-			    </div>
+                    <strong>{{ lang('ACP_ADMINNOTIFICATIONS_NO_SAVED') }}</strong>
+            </div>
         </div>
         <table id="tblNotySaved" class="table1 forums responsive show-header" style="margin-top: 15px;"  >
             <thead  >
@@ -116,24 +116,24 @@
         <h1><i class="fa fa-bell"></i>{{ lang('NOTIFY') }}</h1>
         <fieldset style="padding-bottom:0; ">
             <dl style="margin-bottom:0; ">
-				<dd class="full" style="text-align: left;">
+                <dd class="full" style="text-align: left;">
                     <lable for="noty_title">{{ lang('ACP_ADMINNOTIFICATIONS_NOTY_TITLE') }}{{ lang('COLON') }}</lable>
                     <input type="text" id="noty_title" name="noty_title"  style="width: 100%;" value="{{ lang('NOTIFICATION_FROMADMIN') }}"  maxlength="50" />
                 </dd>
-				<dd class="full" style="text-align: left;">
+                <dd class="full" style="text-align: left;">
                     <lable for="usersearch"><span style="color:Red"><b>(*)</b></span>{{ lang('ACP_ADMINNOTIFICATIONS_NOTY_CONTENT') }}{{ lang('COLON') }}</lable>
                     <textarea id="noty_content" name="noty_content" rows="5" cols="5" style="width: 100%; height: 60px;"></textarea>
                     <label><input type="radio" class="radio"  name="noty_parse_type"  value="0"{% if S_FORUM_SPONSOR_HTML_CHECKED %}checked="checked"{% endif %}  /> {{ lang('USE_HTML') }}</label>
                     <label><input type="radio" class="radio " name="noty_parse_type"   value="1"{% if !S_FORUM_SPONSOR_HTML_CHECKED %}checked="checked"{% endif %} /> {{ lang('USE_BBCODE') }}</label>
                 </dd>
-				<dd class="full" style="text-align: center; vertical-align:bottom;padding-top:15px;">
+                <dd class="full" style="text-align: center; vertical-align:bottom;padding-top:15px;">
                     <div id="loader"></div>
                     <button class="an-send" type="submit" name="submit"  id="submit"><i class="fa fa-paper-plane"></i> {{ lang('ACP_ADMINNOTIFICATIONS_SEND') }}</button>
                 </dd>
-			</dl>
+            </dl>
         </fieldset>
     </div>
 </div>
-	{{ S_FORM_TOKEN }}
+    {{ S_FORM_TOKEN }}
 </form>
 {% INCLUDE 'overall_footer.html' %}

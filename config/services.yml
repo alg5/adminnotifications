@@ -4,30 +4,15 @@ services:
     alg.adminnotifications.listener:
         class: alg\adminnotifications\event\listener
         arguments:
-            - '@config'
-            - '@template'
-            - '@user'
-            - '%core.root_path%'
-            - '%core.php_ext%'
-            - '@auth'
         tags:
             - { name: event.listener }
     alg.adminnotifications.adminnotifications_handler:
         class: alg\adminnotifications\controller\adminnotifications_handler
         arguments:
-            - '@config'
             - '@dbal.conn'
-            - '@auth'
-            - '@template'
             - '@user'
-            - '%core.root_path%'
-            - '%core.php_ext%'
             - '@request'
-            - '%core.table_prefix%'
             - '@notification_manager'
-            - '%tables.users%'
-            - '%tables.groups%'
-            - '%tables.notifications%'
             - '%tables.adminnotifications%'
     alg.adminnotifications.notification.type.fromadmin:
         class: alg\adminnotifications\notification\fromadmin

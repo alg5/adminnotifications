@@ -3,13 +3,13 @@
     "type": "phpbb-extension",
     "description": "Admin's notifications",
     "homepage": "https://github.com/alg5/adminnotifications/tree/dev_3.2.x",
-    "version": "2.0.3",
-    "time": "2016-04-08",
+    "version": "2.0.4",
+    "time": "2021-01-12",
     "license": "GPL-2.0",
     "authors": [
         {
             "name": "Alg",
-            "homepage": "http://www.chugunok.net",
+            "homepage": "https://www.phpbbguru.net/community/viewtopic.php?f=64&t=44314",
             "role": "Developer"
         }
        
